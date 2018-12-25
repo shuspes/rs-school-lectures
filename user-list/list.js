@@ -1,20 +1,32 @@
 class List {
-  constructor(selector) {
+  constructor(selector, observable) {
     this.selector = selector;
     this.activeEl = null;
     this.elements = [];
+    this.observable = observable;
+
+    observable.on('User:close', this.activate.bind(this, null));
+    observable.on('User:open', this.activate.bind(this));
   }
 
   setElements(elements) {
     this.elements = elements;
   }
 
-  getElementHTML(element) {
-    return `<li data-id='${element.id}' class='css-list-element js-list-element ${element.id}'>${element.getHTML()}</li>`;
+  getListElement(element) {
+    let listElement = document.createElement("li");
+    const user = element.getElement();
+    listElement.className = `css-list-element js-list-element ${element.id}`;
+    listElement.appendChild(user);
+    return listElement;
   }
 
-  getListHTML() {
-    return `<ul class='css-list'>${this.elements.map(element => this.getElementHTML(element)).join('')}</ul>`;
+  getList() {
+    let list = document.createElement("ul");
+    const listElements = this.elements.map(element => this.getListElement(element));
+    list.className = 'css-list';
+    listElements.forEach(element => list.appendChild(element));
+    return list;
   }
 
   toggleActiveClass(id) {
@@ -27,19 +39,8 @@ class List {
     this.toggleActiveClass(id);
   }
 
-  handleClickElement(event) {
-    const id = event.currentTarget.dataset.id;
-    this.activate(id);
-  }
-
-  setHandleEvent() {
-    [].forEach.call(document.getElementsByClassName('js-list-element'), element => {
-      element.addEventListener('click', this.handleClickElement.bind(this));
-    });
-  }
-
   render() {
-    document.querySelector(this.selector).innerHTML = this.getListHTML();
-    this.setHandleEvent();
+    const list = this.getList();
+    document.querySelector(this.selector).appendChild(list);
   }
 }
