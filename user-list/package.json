@@ -1,0 +1,24 @@
+{
+  "name": "user-list",
+  "version": "1.0.0",
+  "description": "Web application example",
+  "main": "index.js",
+  "scripts": {
+    "test": "define later"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuspes/rs-school-lectures.git"
+  },
+  "author": "shuspes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shuspes/rs-school-lectures/issues"
+  },
+  "homepage": "https://github.com/shuspes/rs-school-lectures#readme",
+  "devDependencies": {
+    "eslint": "^5.11.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
