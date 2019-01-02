@@ -8,7 +8,7 @@
     "start": "webpack --watch",
     "code-style": "./node_modules/.bin/eslint src",
     "code-style-fix": "./node_modules/.bin/eslint src --fix",
-    "test": "define later"
+    "test": "./node_modules/.bin/mocha --compilers js:@babel/register \"./src/**/*.test.js\" --recursive"
   },
   "repository": {
     "type": "git",
@@ -21,11 +21,15 @@
   },
   "homepage": "https://github.com/shuspes/rs-school-lectures#readme",
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
     "css-loader": "^2.1.0",
     "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "mini-css-extract-plugin": "^0.5.0",
+    "mocha": "^5.2.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "webpack": "^4.28.3",
