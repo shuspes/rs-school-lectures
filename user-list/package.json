@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
+    "start": "webpack --watch",
     "code-style": "./node_modules/.bin/eslint src",
     "code-style-fix": "./node_modules/.bin/eslint src --fix",
     "test": "define later"
@@ -20,9 +21,13 @@
   },
   "homepage": "https://github.com/shuspes/rs-school-lectures#readme",
   "devDependencies": {
+    "css-loader": "^2.1.0",
     "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.1.2"
   }

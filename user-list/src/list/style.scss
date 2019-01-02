@@ -1,5 +1,13 @@
-.css-list-element {
-  .active {
-    background-color: lightgreen;
+.css-list {
+  width: 100%;
+  
+  .css-list-element {
+    list-style-type: none;
+    cursor: pointer;
+    margin: 5px;
+
+    &.active {
+      background-color: lightgrey;
+    }
   }
 }
