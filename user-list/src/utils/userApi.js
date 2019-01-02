@@ -8,6 +8,11 @@ function normalizeUser(obj) {
 }
 
 function get() {
+  const usersLocal = localStorage.getItem('users');
+
+  if (usersLocal) {
+    return Promise.resolve(JSON.parse(usersLocal));
+  }
   return fetch('https://randomuser.me/api/?results=10&inc=login,name,email')
     .then(data => data.json())
     .then((users) => {
