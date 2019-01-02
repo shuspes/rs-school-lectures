@@ -4,6 +4,9 @@
   "description": "Web application example",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
+    "code-style": "./node_modules/.bin/eslint src",
+    "code-style-fix": "./node_modules/.bin/eslint src --fix",
     "test": "define later"
   },
   "repository": {
@@ -19,6 +22,8 @@
   "devDependencies": {
     "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2"
   }
 }

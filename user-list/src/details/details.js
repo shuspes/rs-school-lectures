@@ -1,4 +1,4 @@
-class Details {
+export default class Details {
   constructor(api, observable, selector) {
     this.api = api;
     this.selector = selector;
@@ -9,8 +9,8 @@ class Details {
   }
 
   openUser(id) {
-    this.api.getUserById(id)
-      .then(user => {
+    this.api.getById(id)
+      .then((user) => {
         this.user = user;
         this.render();
       });

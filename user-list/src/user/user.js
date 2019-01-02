@@ -1,4 +1,4 @@
-class User {
+export default class User {
   constructor(observable, id, firstName, lastName, email) {
     this.id = id;
     this.firstName = firstName;
@@ -8,11 +8,11 @@ class User {
   }
 
   handleUser() {
-    this.observable.trigger('User:open', this.id);    
+    this.observable.trigger('User:open', this.id);
   }
 
   createElement() {
-    let user = document.createElement("span");
+    const user = document.createElement('span');
     user.innerHTML = `${this.firstName} ${this.lastName}`;
     user.addEventListener('click', this.handleUser.bind(this));
     return user;
